@@ -24,6 +24,17 @@ git config --global user.name "Walysson dos Reis"
 git config --global user.email walyxxxx@xxxxx.com
 git config --global user.signingKey 'senha'
 git config --global credential.helper store
+
+# Subir um projeto do PC para o GitHub
+
+echo "# nome-repositorio" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/walyssondosreis/nome-repositorio.git
+git push -u origin main
 ~~~~
 --------
 ## Referências  
+https://docs.github.com/pt  
