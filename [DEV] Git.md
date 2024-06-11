@@ -47,6 +47,20 @@ caso definido essa senha toda vez que fizer pull sera solicitado a senha.
 - Abra a chave publica gerada em ~/.ssh e copie o seu valor e cole no GitHub. 
 -------------------------------------------*/
 git push -u origin main
+
+# Comando Remote
+// Adiciona um repositorio remoto
+git remote add origin url // Pode ser origin ou qualquer outro apelido que faça sentido para o projeto.
+// Lista repositorios remotos associados ao projeto
+git remote -v
+// Remove um repositório remoto
+git remote remove origin
+// Atualiza a url de um repositorio
+git remote set-url origin nova_url
+// Renomeia um repositorio remoto
+git remote rename origin novo-origin
+
+
 ~~~~
 --------
 ## Referências  
