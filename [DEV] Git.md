@@ -14,8 +14,8 @@ git clone URL
 git status
 git add . // Adiciona todos os arquivos alterados para ser commmitados.
 git commit -m "Minhas Alterações"
-git push // Publica para o repositorio remoto
-git pull // Baixa alterações do repositorio remoto
+git push origin main // Publica para o repositorio remoto
+git pull origin main // Baixa alterações do repositorio remoto
 git log // Mostra historico dos commits
 
 # Sugestão para mensagem de commit
