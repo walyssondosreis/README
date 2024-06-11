@@ -25,13 +25,14 @@ git config --global user.email walyxxxx@xxxxx.com
 git config --global user.signingKey 'senha'
 git config --global credential.helper store
 
-# Subir um projeto do PC para o GitHub
+# Subir um novo projeto do PC para o GitHub
 
 echo "# nome-repositorio" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
+/*-------------------------------------------
 // É recomentado vincular o repositório remoto via SSH e não HTTPS
 git remote add origin git@github.com:walyssondosreis/meu-projeto.git
 // Se o PC não estiver vinculado a sua conta GitHub será necessario vincular através de uma chave SSH:
@@ -44,7 +45,7 @@ Key: ** Chave SSH gerada no dispositivo **
 - Será perguntado sobre onde gerar o arquivo e se você quer definir uma senha ,
 caso definido essa senha toda vez que fizer pull sera solicitado a senha.
 - Abra a chave publica gerada em ~/.ssh e copie o seu valor e cole no GitHub. 
-// 
+-------------------------------------------*/
 git push -u origin main
 ~~~~
 --------
