@@ -12,7 +12,7 @@
 ~~~git
 git clone URL
 git status
-git add *
+git add . // Adiciona todos os arquivos alterados para ser commmitados.
 git commit -m "Minhas Alterações"
 git push // PUBLICA DO PC PARA O SERVIDOR
 git pull // BAIXA DO SERVIDOR PARA O PC
@@ -32,9 +32,22 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/walyssondosreis/nome-repositorio.git
+// É recomentado vincular o repositório remoto via SSH e não HTTPS
+git remote add origin git@github.com:walyssondosreis/meu-projeto.git
+// Se o PC não estiver vinculado a sua conta GitHub será necessario vincular através de uma chave SSH:
+No GitHub: Profile >> Settings >> SSH and GPG keys >> New SSH key
+Title : Qualquer titulo 
+Key type: Authentiation key
+Key: ** Chave SSH gerada no dispositivo **
+- Verifique se já existe alguma chave SSH no dispositivo local em ~/.ssh.
+- Se não gere nova chave com: ssh-keygen -t ed25519 -C "your_email@example.com"
+- Será perguntado sobre onde gerar o arquivo e se você quer definir uma senha ,
+caso definido essa senha toda vez que fizer pull sera solicitado a senha.
+- Abra a chave publica gerada em ~/.ssh e copie o seu valor e cole no GitHub. 
+// 
 git push -u origin main
 ~~~~
 --------
 ## Referências  
 https://docs.github.com/pt  
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
