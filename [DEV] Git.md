@@ -14,9 +14,19 @@ git clone URL
 git status
 git add . // Adiciona todos os arquivos alterados para ser commmitados.
 git commit -m "Minhas Alterações"
-git push // PUBLICA DO PC PARA O SERVIDOR
-git pull // BAIXA DO SERVIDOR PARA O PC
+git push // Publica para o repositorio remoto
+git pull // Baixa alterações do repositorio remoto
+git log // Mostra historico dos commits
 
+# Sugestão para mensagem de commit
+- Mantenha a mensagem curta e concisa: No máximo 72 char , se nessario descrição adicional pule uma linha.
+- Uso de verbo no infinitivo: Utilizar como 'adicionar titulo pagina inicial', 'corrigir funcionalidade ...','atualizar'.
+- Evite detalhes técnicos: Esses detalhes devem ser adionados em comentários no codigo ou na documentação.
+*Evitar realizar commits muito pequenos ou muito grandes*
+
+#Sobre repositorios
+- O repositorio é publico apenas para leitura, para colaboração mesmo sendo public devo adicionar a conta da pessoa no projeto
+|-> Repositorio > Settings > Collaborators > Add People
 
 # Configurar GIT no linux
 
