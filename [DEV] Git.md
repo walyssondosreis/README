@@ -9,13 +9,9 @@
 *Manual de consulta rápida dos conceitos e principais comandos.*
 
 ---------------------
-~~~git
-git clone URL
-git status
-git add . // Adiciona todos os arquivos alterados para ser commmitados.
+### Sobre Commits
+~~~bash
 git commit -m "Minhas Alterações"
-git push origin main // Publica para o repositorio remoto
-git pull origin main // Baixa alterações do repositorio remoto
 git log // Mostra historico dos commits
 
 // O git revert ele desfaz um commit porém não apaga ele cria um novo commit desfazendo essas alterações
@@ -35,6 +31,22 @@ git reset --hard id_commit_ANTERIOR // Importante passar o id do commit anterior
 - Uso de verbo no infinitivo: Utilizar como 'adicionar titulo pagina inicial', 'corrigir funcionalidade ...','atualizar'.
 - Evite detalhes técnicos: Esses detalhes devem ser adionados em comentários no codigo ou na documentação.
 *Evitar realizar commits muito pequenos ou muito grandes*
+
+// Adciona um co-autor em um commit :
+$ git commit -m "Adicionar nova funcionalidade.
+>
+>
+Co-authored-by: NOME <nome@email.com>
+Co-authored-by: OUTRO-NOME <outro@email.com>"
+~~~
+
+~~~git
+git clone URL
+git status
+git add . // Adiciona todos os arquivos alterados para ser commmitados.
+
+git push origin main // Publica para o repositorio remoto
+git pull origin main // Baixa alterações do repositorio remoto
 
 #Sobre repositorios
 - O repositorio é publico apenas para leitura, para colaboração mesmo sendo public devo adicionar a conta da pessoa no projeto
@@ -82,12 +94,7 @@ git remote set-url origin nova_url
 // Renomeia um repositorio remoto
 git remote rename origin novo-origin
 
-// Adciona um co-autor em um commit :
-$ git commit -m "Adicionar nova funcionalidade.
->
->
-Co-authored-by: NOME <nome@email.com>
-Co-authored-by: OUTRO-NOME <outro@email.com>"
+
 ~~~~
 
 
