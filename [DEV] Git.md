@@ -18,6 +18,9 @@ git push origin main // Publica para o repositorio remoto
 git pull origin main // Baixa alterações do repositorio remoto
 git log // Mostra historico dos commits
 
+// O git revert ele desfaz um commit porém não apaga ele cria um novo commit desfazendo essas alterações
+git revert id_commit 
+
 # Sugestão para mensagem de commit
 - Mantenha a mensagem curta e concisa: No máximo 72 char , se nessario descrição adicional pule uma linha.
 - Uso de verbo no infinitivo: Utilizar como 'adicionar titulo pagina inicial', 'corrigir funcionalidade ...','atualizar'.
