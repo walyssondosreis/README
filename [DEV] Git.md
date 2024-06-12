@@ -38,6 +38,16 @@ $ git commit -m "Adicionar nova funcionalidade.
 >
 Co-authored-by: NOME <nome@email.com>
 Co-authored-by: OUTRO-NOME <outro@email.com>"
+
+
+// Altera um commit arquivos ou apenas mensagem:
+
+git commit --amend -m "Trocando mensagem do commit"
+
+
+Estes comandos só devem ser aplicados a commits que NÃO foram enviados ao repositório remoto.
+A integridade do histórico de commits é fundamental.
+O historico de commits é a representação precisa do progresso do projeto ao longo do tempo .
 ~~~
 
 ~~~git
