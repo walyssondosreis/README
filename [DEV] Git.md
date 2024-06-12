@@ -19,7 +19,11 @@ git pull origin main // Baixa alterações do repositorio remoto
 git log // Mostra historico dos commits
 
 // O git revert ele desfaz um commit porém não apaga ele cria um novo commit desfazendo essas alterações
-git revert id_commit 
+git revert id_commit
+
+// Apaga um commit -- IMPORTANTE utilizar apanas caso commit não tenha sido enviado via pro repositório 'push'
+git reset --hard id_commit_ANTERIOR // Importante passar o id do commit anterior não do que eu quero 'apagar'
+// a opção --hard faz com seja desfeito não só o commit como também as alterações nos arquivos.
 
 # Sugestão para mensagem de commit
 - Mantenha a mensagem curta e concisa: No máximo 72 char , se nessario descrição adicional pule uma linha.
