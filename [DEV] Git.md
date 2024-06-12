@@ -39,81 +39,68 @@ Co-authored-by: NOME <nome@email.com>
 Co-authored-by: OUTRO-NOME <outro@email.com>"
 ~~~
 ### Sobre conflitos
-- A resolução de conflito no git é baseada em um novo 'commit' ou seja identificado o conflito
-é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos, após feito
-isso salve os arquivos e faça um novo commit. Submeta o commit para o repositorio do projeto com 'push'
-e ai os conflitos estarão resolvidos.
+- A resolução de conflito no git é baseada em um novo commit ou seja identificado o conflito é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos. Após resolvido conflito salve os arquivos e faça um novo commit. Submeta o commit para o repositorio remoto, resolvendo assim o conflito.
 
-### Configurando projeto
+### Sobre repositórios
+- Repositórios mesmo sendo públicos não é permitido alteração, ou seja são somente leitura.
+- Para colaboração em um projeto publico ou privado deve adicionar o usuário git colocaborador ao projeto em : Repositorio > Settings > Collaborators > Add People.
 ~~~bash
+# Baixa versão do projeto
 git clone URL
+# Verifica status do projeto
 git status
-git add . // Adiciona todos os arquivos alterados para ser commmitados.
-
-git push origin main // Publica para o repositorio remoto
-git pull origin main // Baixa alterações do repositorio remoto
-
-#Sobre repositorios
-- O repositorio é publico apenas para leitura, para colaboração mesmo sendo public devo adicionar a conta da pessoa no projeto
-|-> Repositorio > Settings > Collaborators > Add People
-
-# Configurar GIT no linux
-
-git config --global user.name "Walysson dos Reis"
-git config --global user.email walyxxxx@xxxxx.com
-git config --global user.signingKey 'senha'
-git config --global credential.helper store
-
-# Subir um novo projeto do PC para o GitHub
-
-echo "# nome-repositorio" >> README.md
+# Adiciona arquivos para serem commitados
+git add .
+# Envia commits para o repositório remoto
+git push origin main
+# Envia os commits ao repositorio remoto.
+# A opção -u define que o branch padrão é o origin, podendo assim nos proximos comando utilizar apenas git push.
+git push -u origin main
+# Baixa commits do repositório remoto
+git pull origin main
+# Inicializa um diretório local para o git
 git init
-git add README.md
-git commit -m "first commit"
+# Define o branch que principal 
 git branch -M main
-/*-------------------------------------------
-// É recomentado vincular o repositório remoto via SSH e não HTTPS
+# Adiciona um repositório remoto
 git remote add origin git@github.com:walyssondosreis/meu-projeto.git
-// Se o PC não estiver vinculado a sua conta GitHub será necessario vincular através de uma chave SSH:
-No GitHub: Profile >> Settings >> SSH and GPG keys >> New SSH key
-Title : Qualquer titulo 
-Key type: Authentiation key
-Key: ** Chave SSH gerada no dispositivo **
+# Adiciona um repositorio remoto. Pode ser origin ou qualquer outro apelido que faça sentido para o projeto.
+git remote add origin url  
+# Lista repositorios remotos associados ao projeto
+git remote -v
+# Remove um repositório remoto
+git remote remove origin
+# Atualiza a url de um repositorio
+git remote set-url origin nova_url
+# Renomeia um repositorio remoto
+git remote rename origin novo-origin
+~~~
+### Sobre configurações
+- É recomendado vincular o repositório remoto via SSH em vez de HTTPS.
+- Se o PC não estiver vinculado a sua conta GitHub será necessario vincular através de uma chave SSH.
 - Verifique se já existe alguma chave SSH no dispositivo local em ~/.ssh.
 - Se não gere nova chave com: ssh-keygen -t ed25519 -C "your_email@example.com"
-- Será perguntado sobre onde gerar o arquivo e se você quer definir uma senha ,
-caso definido essa senha toda vez que fizer pull sera solicitado a senha.
-- Abra a chave publica gerada em ~/.ssh e copie o seu valor e cole no GitHub. 
--------------------------------------------*/
-git push -u origin main
-
-# Comando Remote
-// Adiciona um repositorio remoto
-git remote add origin url // Pode ser origin ou qualquer outro apelido que faça sentido para o projeto.
-// Lista repositorios remotos associados ao projeto
-git remote -v
-// Remove um repositório remoto
-git remote remove origin
-// Atualiza a url de um repositorio
-git remote set-url origin nova_url
-// Renomeia um repositorio remoto
-git remote rename origin novo-origin
-
-~~~~
+- Será perguntado sobre onde gerar o arquivo e se você quer definir uma senha, caso definido senha esta será solicitada sempre que for acionado o repositorio remoto.
+- Abra a chave publica gerada em ~/.ssh e copie o seu valor e cole no GitHub.
+- No GitHub: Profile >> Settings >> SSH and GPG keys >> New SSH key
+  - Title : Qualquer titulo 
+  - Key type: Authentiation key
+  - Key: ** Chave SSH gerada no dispositivo **
+~~~bash
+# Configura o nome de usuário de forma global no dispositivo
+git config --global user.name "Walysson dos Reis"
+# Configura o email de usuário de forma global no dispositivo
+git config --global user.email walyxxxx@xxxxx.com
+# Configura para que seja armazenada as credenciais no dispositivo
+git config --global credential.helper store
+~~~
 ### .gitignore
-~~~bash
-.gitignore
+- O arquivo .gitignore serve para adicionar pastas e arquivos para serem ignorados no commit.
+- Este site fornece o .gitignore padrão para as principais linguagens e frameworks: https://www.toptal.com/developers/gitignore
 
-Adicionar pastas e arquivos para serem ignorados no commit
-
-Site que cria .gitignore padrão para principais linguagens e frameworks.
-https://www.toptal.com/developers/gitignore
-~~~
 ### Github Gist
-~~~bash
-A ferramenta gist do GitHub é feita para que seja possível 
-compartilhar trechos de codigos, ou mesmo armazenar de modo privado.
-~~~
+- A ferramenta gist do GitHub é feita para que seja possível compartilhar trechos de codigos, ou mesmo armazenar de modo privado.
+
 --------
 ## Referências  
 https://docs.github.com/pt  
