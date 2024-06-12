@@ -9,48 +9,43 @@
 *Manual de consulta rápida dos conceitos e principais comandos.*
 
 ---------------------
+
 ### Sobre Commits
+- O historico de commits é a representação precisa do progresso do projeto ao longo do tempo, portanto a integridade desse histórico é fundamental.
+- O comando 'reset' NÃO deve ser utilizado para commits que já foram enviados para o repositório remoto, isso pode causar problemas no projeto.
+- Evite realizar commits muito pequenos ou muito grandes, isso irá facilitar a manipulação e leitura do histórico de commits.
+- Sugestão para mensagem de commit:
+  - Mantenha a mensagem curta e concisa: No máximo 72 caractéres , se nessário descrição adicional pule uma linha.
+  - Uso de verbo no infinitivo: Utilizar verbos como 'adicionar...', 'corrigir ...','atualizar...' na composição da mensagem.
+  - Evite detalhes técnicos: Detalhes técnicos devem ser adicionados em comentários no codigo ou na documentação do projeto.
+
 ~~~bash
+# Efetua commit de arquivos.
 git commit -m "Minhas Alterações"
-git log // Mostra historico dos commits
-
-// O git revert ele desfaz um commit porém não apaga ele cria um novo commit desfazendo essas alterações
+# Mostra histórico de commits.
+git log
+# Desfaz um commit criando um automaticamente um novo de reversão.
 git revert id_commit
-
-** A resolução de conflito no git é baseada em um novo 'commit' ou seja identificado o conflito
-é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos, após feito
-isso salve os arquivos e faça um novo commit. Submeta o commit para o repositorio do projeto com 'push'
-e ai os conflitos estarão resolvidos.
-
-// Apaga um commit -- IMPORTANTE utilizar apanas caso commit não tenha sido enviado via pro repositório 'push'
-git reset --hard id_commit_ANTERIOR // Importante passar o id do commit anterior não do que eu quero 'apagar'
-// a opção --hard faz com seja desfeito não só o commit como também as alterações nos arquivos.
-
-# Sugestão para mensagem de commit
-- Mantenha a mensagem curta e concisa: No máximo 72 char , se nessario descrição adicional pule uma linha.
-- Uso de verbo no infinitivo: Utilizar como 'adicionar titulo pagina inicial', 'corrigir funcionalidade ...','atualizar'.
-- Evite detalhes técnicos: Esses detalhes devem ser adionados em comentários no codigo ou na documentação.
-*Evitar realizar commits muito pequenos ou muito grandes*
-
-// Adciona um co-autor em um commit :
+# Apaga um commit. Importante passar o id do commit anterior e não do qual quero 'apagar'.
+# A opção '--hard' faz com que seja desfeito não só o commit como também as alterações nos arquivos modificados.
+git reset --hard id_commit_ANTERIOR
+# Altera arquivos de um commit ou mesmo só a mensagem de um commit:
+git commit --amend -m "Trocando mensagem do commit"
+# Adiciona co-autores em commit :
 $ git commit -m "Adicionar nova funcionalidade.
 >
 >
 Co-authored-by: NOME <nome@email.com>
 Co-authored-by: OUTRO-NOME <outro@email.com>"
-
-
-// Altera um commit arquivos ou apenas mensagem:
-
-git commit --amend -m "Trocando mensagem do commit"
-
-
-Estes comandos só devem ser aplicados a commits que NÃO foram enviados ao repositório remoto.
-A integridade do histórico de commits é fundamental.
-O historico de commits é a representação precisa do progresso do projeto ao longo do tempo .
 ~~~
+### Sobre conflitos
+- A resolução de conflito no git é baseada em um novo 'commit' ou seja identificado o conflito
+é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos, após feito
+isso salve os arquivos e faça um novo commit. Submeta o commit para o repositorio do projeto com 'push'
+e ai os conflitos estarão resolvidos.
 
-~~~git
+### Configurando projeto
+~~~bash
 git clone URL
 git status
 git add . // Adiciona todos os arquivos alterados para ser commmitados.
@@ -104,11 +99,24 @@ git remote set-url origin nova_url
 // Renomeia um repositorio remoto
 git remote rename origin novo-origin
 
-
 ~~~~
+### .gitignore
+~~~bash
+.gitignore
 
+Adicionar pastas e arquivos para serem ignorados no commit
 
+Site que cria .gitignore padrão para principais linguagens e frameworks.
+https://www.toptal.com/developers/gitignore
+~~~
+### Github Gist
+~~~bash
+A ferramenta gist do GitHub é feita para que seja possível 
+compartilhar trechos de codigos, ou mesmo armazenar de modo privado.
+~~~
 --------
 ## Referências  
 https://docs.github.com/pt  
-https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent  
+https://www.toptal.com/developers/gitignore  
+
