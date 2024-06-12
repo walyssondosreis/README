@@ -21,6 +21,11 @@ git log // Mostra historico dos commits
 // O git revert ele desfaz um commit porém não apaga ele cria um novo commit desfazendo essas alterações
 git revert id_commit
 
+** A resolução de conflito no git é baseada em um novo 'commit' ou seja identificado o conflito
+é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos, após feito
+isso salve os arquivos e faça um novo commit. Submeta o commit para o repositorio do projeto com 'push'
+e ai os conflitos estarão resolvidos.
+
 // Apaga um commit -- IMPORTANTE utilizar apanas caso commit não tenha sido enviado via pro repositório 'push'
 git reset --hard id_commit_ANTERIOR // Importante passar o id do commit anterior não do que eu quero 'apagar'
 // a opção --hard faz com seja desfeito não só o commit como também as alterações nos arquivos.
@@ -77,8 +82,15 @@ git remote set-url origin nova_url
 // Renomeia um repositorio remoto
 git remote rename origin novo-origin
 
-
+// Adciona um co-autor em um commit :
+$ git commit -m "Adicionar nova funcionalidade.
+>
+>
+Co-authored-by: NOME <nome@email.com>
+Co-authored-by: OUTRO-NOME <outro@email.com>"
 ~~~~
+
+
 --------
 ## Referências  
 https://docs.github.com/pt  
