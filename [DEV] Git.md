@@ -18,6 +18,8 @@
   - Mantenha a mensagem curta e concisa: No máximo 72 caractéres , se nessário descrição adicional pule uma linha.
   - Uso de verbo no infinitivo: Utilizar verbos como 'adicionar...', 'corrigir ...','atualizar...' na composição da mensagem.
   - Evite detalhes técnicos: Detalhes técnicos devem ser adicionados em comentários no codigo ou na documentação do projeto.
+- HEAD significa o último commit ou commite onde meu projeto local esta.
+- Caso não seja passado parâmetro/objeto para um comando git ele sempre irá considerar o HEAD.
 
 ~~~bash
 # Efetua commit de arquivos.
@@ -37,6 +39,22 @@ $ git commit -m "Adicionar nova funcionalidade.
 >
 Co-authored-by: NOME <nome@email.com>
 Co-authored-by: OUTRO-NOME <outro@email.com>"
+
+# Mostra log de commits resumido
+git log --oneline
+# Mostra de forma completa o log de commits
+git log -p
+# Mostra a visualização completa para um commit específico
+git log show id_hash_commit
+# Mostra o log de commit com a linha do tempo
+git log --graph
+# Mostra o log de forma personalizada
+git log --pretty
+git log --format="%H %an"
+# Verifica documentação para o comando git
+git comando --help
+# Mostra diferenças entre 2 commits
+git diff hashCommit1..hashCommit2
 ~~~
 ### Sobre conflitos
 - A resolução de conflito no git é baseada em um novo commit ou seja identificado o conflito é sugerido 3 opções: aceitar a alteração remota, aceitar a alteração local ou mesclar ambos. Após resolvido conflito salve os arquivos e faça um novo commit. Submeta o commit para o repositorio remoto, resolvendo assim o conflito.
@@ -74,6 +92,22 @@ git remote remove origin
 git remote set-url origin nova_url
 # Renomeia um repositorio remoto
 git remote rename origin novo-origin
+# Mostra os branches (ramificações) disponiveis no meu repositorio local
+git branch
+# Cria uma nova ramificação
+git branch nome_ramo
+# Altera a ramificação local de trabalho
+git checkout meu_ramo
+# Cria ou altera o projeto para uma ramificação
+git switch novo-funcionalidade
+# Mescla um ramo específico para um ramo principal
+git merge novo-funcionalidade
+# Apaga uma ramificação
+git branch -d nome_ramo
+# Apaga do repositorio remoto a branch removida local
+git push origin :nome_ramo
+# Reescreve a historia de commits. Ele move os commits do branch atual para o branch informado.
+git rebase main
 ~~~
 ### Sobre configurações
 - É recomendado vincular o repositório remoto via SSH em vez de HTTPS.
