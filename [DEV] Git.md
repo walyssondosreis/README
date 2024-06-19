@@ -62,6 +62,13 @@ git diff hashCommit1..hashCommit2
 ### Sobre repositórios
 - Repositórios mesmo sendo públicos não é permitido alteração, ou seja são somente leitura.
 - Para colaboração em um projeto publico ou privado deve adicionar o usuário git colocaborador ao projeto em : Repositorio > Settings > Collaborators > Add People.
+- Working Tree : Arquivos antes de estarem em qualquer commit
+- Staging Area : Lugar após commitados arquivos
+- O comando restore trabalha em cima desse dois estados do código, Working Tree e Staging Area.
+- Quando são criadas tags no git estas ficam disponiveis no GitHub para ser a versão do projeto tagueada em zip.
+- No GitHub é possivel criar realeases para tags que são basicamente documentos que descrevem as alterações feitas.
+- O cherry-pick é aplicando quando duas funcionalidades em branches diferentes precisam da mesma modificação então eu consigo puxar a modificação necessária para o branch atual. 
+
 ~~~bash
 # Baixa versão do projeto
 git clone URL
@@ -108,6 +115,50 @@ git branch -d nome_ramo
 git push origin :nome_ramo
 # Reescreve a historia de commits. Ele move os commits do branch atual para o branch informado.
 git rebase main
+# Cria um ramo movendo para ele
+git switch -c movendo-detalhes
+# Guarda uma modificação sem necessidade de commit
+git stash
+# Aplica o que estiver guardado na 'gaveta' de alterações
+git stash pop
+# Mostra o que esta na 'gaveta' de alterações não commitadas
+git stash list
+# Limpa tudo que tiver no git stash 
+git stash clear 
+# Adiciona o stash com mensagem descritiva
+git stash push -m "Descricao do Stash"
+# Aplica o stash de acordo com o indice visto em list
+git stash apply 1
+# Remove um item da stash pelo indice
+git stash drop 1
+# Restaura um arquivo ou mais arquivos não commitados a partir de um HEAD 
+git restore .
+git restore --source=HEAD arquivo.php
+git restore meuarquivoalterado.php
+# Volta o estado de um ou mais arquivo, tipo commitados voltaram para não commitados
+git restore --staged app.js
+# Volta no tempo um arquivo especifico, restaura arquivo para commit espeficio
+git restore --source=hash_do_commit
+# Tag é um ponteiro que aponta para um commit, ou seja 
+git tag nome_tag
+# Cria uma tag especifica para um commit
+git tag nome_tag hash_commit
+# Verifica todas as tags
+git tag 
+# Sobe uma tag especifica
+git push origin nome_tag
+# Sobe todas as tags para um commit
+git push origin --tags
+# Remove uma tag localmente
+git tag -d v0.1.1
+# Cria uma tag com anotação
+git tag -a nome_tag -m  "Minha anotação"
+# Ver detalhes de uma tag, só funciona pra anotated tags
+git tag -v v0.1.1
+# Pega o commit especifico de um outro branch(ramo) e aplica no branch atual
+git cherry-pick hash_do_commit
+# Mostra quem fez alteração em determinada linha de arquivo
+git blame nome_arquivo
 ~~~
 ### Sobre configurações
 - É recomendado vincular o repositório remoto via SSH em vez de HTTPS.
